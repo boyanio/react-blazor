@@ -2,18 +2,8 @@ html, body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-app {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
 .new-message-form {
   margin-bottom: 20px;
-}
-
-.new-message-form .form-control {
-  min-width: 300px;
 }
 
 .chat-section {
@@ -36,6 +26,10 @@ app {
   content: "";
 }
 
+.left-chat, .right-chat {
+  margin-bottom: 20px;
+}
+
 .left-chat img, .right-chat img {
   width: 50px;
   height: 50px;
@@ -54,11 +48,12 @@ app {
   border-radius: 5px;
   float: left;
   width: 60%;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  font-weight: bold;
 }
 
 .left-chat span, .right-chat span {
-  color: #B7BCC5;
+  color: #808080;
   display: block;
   clear: both;
 }
