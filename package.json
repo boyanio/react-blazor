@@ -1,7 +1,7 @@
 {
   "name": "react-blazor",
   "version": "0.1.0",
-  "description": "React and Blazor side by side",
+  "description": "React vs. Blazor side by side",
   "keywords": [
     "React",
     "Blazor",
@@ -13,8 +13,13 @@
     "build": "npm run build:react && npm run build:blazor",
     "serve": "node serve.js"
   },
+  "private": true,
   "author": "Boyan Mihaylov",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boyanio/react-blazor.git"
+  },
   "devDependencies": {
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
