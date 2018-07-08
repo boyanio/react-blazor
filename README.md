@@ -1,6 +1,6 @@
 # React vs. Blazor
 
-This demo shows how React apps can live together with Blazor app, which are basically C# apps running in the browser with the help of WebAssembly.
+This demo shows how React apps can live together with Blazor apps, which are basically C# apps running in the browser with the help of WebAssembly.
 
 ## Getting started
 
