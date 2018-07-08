@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Blazor.Browser.Interop;
-using System.Linq;
 
 namespace BlazorChatApp.Core
 {
@@ -7,9 +6,7 @@ namespace BlazorChatApp.Core
     {
         internal static ChatMessage[] GetChatMessages()
         {
-            return RegisteredFunction.Invoke<ChatMessage[]>("getChatMessages")
-                .OrderByDescending(m => m.Time)
-                .ToArray();
+            return RegisteredFunction.Invoke<ChatMessage[]>("getChatMessages");
         }
 
         internal static void AddChatMessage(ChatMessage chatMessage)

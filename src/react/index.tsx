@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { ReactChatApp } from "./components/ReactChatApp";
+import { Root } from "./components/Root";
 
 ReactDOM.render(
-  <ReactChatApp />,
+  <Root />,
   document.getElementById("react-app")
 );

@@ -9,15 +9,26 @@ export interface ChatProps {
   chatMessages: ChatMessageModel[];
 }
 
-export const Chat = (props: ChatProps) =>
-  <div className="row">
-    <div className="col-md-12 col-sm-12 col-xs-12">
-      <div className="chat-section">
-        <ul>
-          {props.chatMessages
-            .sort(byTimeDesc)
-            .map((chatMessage, index) => <ChatMessage key={index} chatMessage={chatMessage} isLeft={chatMessage.from == props.chatMessages[0].from} />)}
-        </ul>
+export const Chat = (props: ChatProps) => {
+  const hasChatMessages = props.chatMessages.length > 0;
+
+  const body = hasChatMessages ?
+    <div className="chat-section">
+      <ul>
+        {props.chatMessages
+          .sort(byTimeDesc)
+          .map((chatMessage, index) => <ChatMessage key={index} chatMessage={chatMessage} isLeft={chatMessage.from == props.chatMessages[props.chatMessages.length - 1].from} />)}
+      </ul>
+    </div> :
+    <p>
+      There aren't any messages yet. Why don't you write one?
+    </p>;
+
+  return (
+    <div className="row">
+      <div className="col-md-12">
+        {body}
       </div>
     </div>
-  </div>
+  );
+}

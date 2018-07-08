@@ -1,0 +1,50 @@
+﻿@using System.Timers
+
+<div class="row">
+    <div class="col-md-12">
+        @if (_chatMessages.Length > 0)
+        {
+            <div class="chat-section">
+                <ul>
+                    @foreach (var chatMessage in _chatMessages)
+                    {
+                        bool isLeft = _chatMessages[_chatMessages.Length - 1].From.Equals(chatMessage.From);
+
+                        <li>
+                            <div class="@(isLeft ? "left-chat" : "right-chat")">
+                                <img src="/images/@chatMessage.From.ToLower()-logo.png">
+                                <p>@chatMessage.Text</p>
+                                <span>@TimeUtils.FormatRelativeTime(chatMessage.Time)</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        else
+        {
+            <p>
+                There aren't any messages yet. Why don't you write one?
+            </p>
+        }
+    </div>
+</div>
+
+@functions {
+    ChatMessage[] _chatMessages = new ChatMessage[0];
+    Timer _timer = new Timer(1000);
+
+    protected override void OnInit()
+    {
+        _timer.Elapsed += (sender, args) => Tick();
+        _timer.Start();
+    }
+
+    private void Tick()
+    {
+        _chatMessages = ChatMessageRepository.GetChatMessages()
+            .OrderByDescending(m => m.Time)
+            .ToArray();
+        StateHasChanged();
+    }
+}

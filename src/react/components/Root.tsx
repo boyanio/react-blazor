@@ -4,11 +4,11 @@ import { Chat } from "./Chat";
 import { ChatMessage as ChatMessageModel } from "../core/ChatMessage";
 import { ChatMessageRepository } from "../core/ChatMessageRepository";
 
-interface ReactChatAppState {
+interface RootState {
   chatMessages: ChatMessageModel[];
 }
 
-export class ReactChatApp extends React.Component<{}, ReactChatAppState> {
+export class Root extends React.Component<{}, RootState> {
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ export class ReactChatApp extends React.Component<{}, ReactChatAppState> {
   render() {
     return (
       <div>
-        <h1>React chat</h1>
+        <h1 className="text-right">React chat</h1>
 
         <NewChatMessage />
 

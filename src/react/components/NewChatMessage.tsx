@@ -20,11 +20,15 @@ export class NewChatMessage extends React.Component<{}, NewChatMessageState> {
 
   render() {
     return (
-      <form className="form-inline new-message-form" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <input type="text" id="newChatMessage" className="form-control" placeholder="Enter your message here..." value={this.state.newMessage} onChange={this.handleChange} />
+      <form className="new-message-form">
+        <div className="row">
+          <div className="col-md-9">
+            <input type="text" id="newChatMessage" className="form-control" placeholder="Enter your message here..." value={this.state.newMessage} onChange={this.handleChange} />
+          </div>
+          <div className="col-md-3">
+            <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Send</button>
+          </div>
         </div>
-        <button type="submit" className="btn btn-primary">Send</button>
       </form>
     );
   }
@@ -33,9 +37,8 @@ export class NewChatMessage extends React.Component<{}, NewChatMessageState> {
     this.setState({ newMessage: event.currentTarget.value });
   }
 
-  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  handleSubmit() {
     ChatMessageRepository.addChatMessage({ from: 'React', time: new Date(), text: this.state.newMessage });
     this.setState(createDefaultState());
-    event.preventDefault();
   }
 }
