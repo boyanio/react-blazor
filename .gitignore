@@ -1,0 +1,8 @@
+*.user
+
+.vs
+node_modules
+bin
+obj
+
+/build/apps

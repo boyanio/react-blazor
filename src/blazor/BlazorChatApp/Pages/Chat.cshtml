@@ -1,0 +1,56 @@
+﻿@using System.Timers
+@page "/"
+
+<h1>Blazor chat</h1>
+
+<form class="form-inline new-message-form">
+    <div class="form-group">
+        <input type="text" id="newChatMessage" class="form-control" placeholder="Enter your message here..." bind="@_newMessage" />
+    </div>
+    <button type="button" class="btn btn-primary" onclick="@SendMessage">Send</button>
+</form>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="chat-section">
+            <ul>
+                @foreach (var chatMessage in _chatMessages)
+                {
+                    bool isSameAsFirst = _chatMessages[0].From.Equals(chatMessage.From);
+
+                    <li>
+                        <div class="@(isSameAsFirst ? "left-chat" : "right-chat")">
+                            <img src="/images/@chatMessage.From.ToLower()-logo.png">
+                            <p>@chatMessage.Text</p>
+                            <span>@TimeUtils.FormatRelativeTime(chatMessage.Time)</span>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@functions {
+    ChatMessage[] _chatMessages = new ChatMessage[0];
+    Timer _timer = new Timer(1000);
+    string _newMessage = null;
+
+    protected override void OnInit()
+    {
+        _timer.Elapsed += (sender, args) => Tick();
+        _timer.Start();
+    }
+
+    private void Tick()
+    {
+        _chatMessages = ChatMessageRepository.GetChatMessages();
+        StateHasChanged();
+    }
+
+    private void SendMessage()
+    {
+        ChatMessageRepository.AddChatMessage(new ChatMessage { Time = DateTime.Now, From = "Blazor", Text = _newMessage });
+        _newMessage = null;
+    }
+}

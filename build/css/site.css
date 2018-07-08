@@ -1,0 +1,80 @@
+html, body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+app {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-message-form {
+  margin-bottom: 20px;
+}
+
+.new-message-form .form-control {
+  min-width: 300px;
+}
+
+.chat-section {
+  background-color: #F3F3F3;
+  padding: 20px;
+}
+
+.chat-section ul {
+  padding: 0;
+}
+
+.chat-section ul li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.chat-section ul li::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.left-chat img, .right-chat img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 0 10px;
+}
+
+.right-chat img {
+  float: right;
+}
+
+.left-chat p, .right-chat p {
+  background-color: #FD8468;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  float: left;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.left-chat span, .right-chat span {
+  color: #B7BCC5;
+  display: block;
+  clear: both;
+}
+
+.left-chat span {
+  float: left;
+  margin-left: 70px;
+}
+
+.right-chat span {
+  float: right;
+  margin-right: 70px;
+}
+
+.right-chat p {
+  float: right;
+  background-color: #FFFFFF;
+  color: #FD8468;
+}
