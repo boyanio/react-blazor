@@ -19,6 +19,8 @@ npm run build
 npm run serve
 ```
 
+The later will create a web site at `http://localhost:8080/react-blazor/`.
+
 ## Questions & contribution
 
 You can follow me on Twitter with [@boyanio](https://twitter.com/boyanio) and ask me questions you might have. You can also open an issue here on GitHub. Pull requests are welcome, too :-)

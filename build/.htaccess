@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /react-blazor/
+Options +FollowSymLinks
+
+RewriteRule ^_framework/(.+) /react-blazor/apps/blazor/_framework/$1 [L]

@@ -34,7 +34,8 @@ const setHeaders = (res, path) => {
 console.log(`Serving HTTP on http://localhost:${port} ...`);
 connect()
   .use(modRewrite([
-    '^/_framework/(.+) /apps/blazor/_framework/$1 [L]',
+    '^/react-blazor/_framework/(.+) /apps/blazor/_framework/$1 [L]',
+    '^/react-blazor/?(.+) /$1 [L]'
   ]))
   .use(serveStatic(buildDir, { 'setHeaders': setHeaders }))
   .use((req, res, next) => {

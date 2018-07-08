@@ -10,7 +10,7 @@ export interface ChatMessageProps {
 export const ChatMessage = (props: ChatMessageProps) =>
   <li>
     <div className={props.isLeft ? "left-chat" : "right-chat"}>
-      <img src={`/images/${props.chatMessage.from.toLowerCase()}-logo.png`} />
+      <img src={`images/${props.chatMessage.from.toLowerCase()}-logo.png`} />
       <p>{props.chatMessage.text}</p>
       <span>{formatRelativeTime(props.chatMessage.time)}</span>
     </div>
