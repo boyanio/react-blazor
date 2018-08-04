@@ -31,7 +31,7 @@ const setHeaders = (res, path) => {
   }
 };
 
-console.log(`Serving HTTP on http://localhost:${port} ...`);
+console.log(`Serving HTTP on http://localhost:${port}/react-blazor/ ...`);
 connect()
   .use(modRewrite([
     '^/react-blazor/_framework/(.+) /apps/blazor/_framework/$1 [L]',
