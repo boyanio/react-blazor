@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChatMessage } from "./ChatMessage";
-import { ChatMessage as ChatMessageModel } from "../core/ChatMessage";
+import { ChatMessage as ChatMessageModel } from "../../common/ChatMessage";
 
 const byTimeDesc = (a: ChatMessageModel, b: ChatMessageModel) =>
   b.time.getTime() - a.time.getTime();

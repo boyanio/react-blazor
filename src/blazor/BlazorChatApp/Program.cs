@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Blazor.Browser.Rendering;
-using Microsoft.AspNetCore.Blazor.Browser.Services;
+﻿using Microsoft.AspNetCore.Blazor.Hosting;
 
 namespace BlazorChatApp
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
+            BlazorWebAssemblyHost.CreateDefaultBuilder()
+                .UseBlazorStartup<Startup>();
+
+        public static void Main(string[] args)
         {
-            var serviceProvider = new BrowserServiceProvider(services => { });
-            new BrowserRenderer(serviceProvider).AddComponent<App>("#blazor-app");
+            CreateHostBuilder(args).Build().Run();
         }
     }
 }

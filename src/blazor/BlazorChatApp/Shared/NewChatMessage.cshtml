@@ -4,7 +4,7 @@
       <input type="text" id="newChatMessage" class="form-control" placeholder="Enter your message here..." bind="@_newMessage" />
     </div>
     <div class="col-md-3">
-      <button type="button" class="btn btn-primary btn-block" onclick="@AddChatMessage">Send</button>
+      <button type="button" class="btn btn-primary btn-block" onclick="@AddChatMessageAsync">Send</button>
     </div>
   </div>
 </form>
@@ -12,9 +12,9 @@
 @functions {
     string _newMessage = null;
 
-    private void AddChatMessage()
+    private async Task AddChatMessageAsync()
     {
-        ChatMessageRepository.AddChatMessage(new ChatMessage { Time = DateTime.Now, From = "Blazor", Text = _newMessage });
+        await ChatMessageRepository.AddChatMessageAsync(new ChatMessage { Time = DateTime.Now, From = "Blazor", Text = _newMessage });
         _newMessage = null;
     }
 }

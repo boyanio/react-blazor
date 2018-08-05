@@ -2,12 +2,19 @@
   "compilerOptions": {
     "target": "es6",
     "jsx": "react",
-    "module": "commonjs"
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "ChatMessageRepository": [
+        "src/common/ChatMessageRepository.d"
+      ]
+    }
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
-    "./src/react/**/*"
+    "./src/react/**/*",
+    "./src/common/**/*",
   ]
 }

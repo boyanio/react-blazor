@@ -1,17 +1,22 @@
-﻿using Microsoft.AspNetCore.Blazor.Browser.Interop;
+﻿using Microsoft.JSInterop;
+using System.Threading.Tasks;
 
 namespace BlazorChatApp.Core
 {
     internal static class ChatMessageRepository
     {
-        internal static ChatMessage[] GetChatMessages()
+        internal static async Task<ChatMessage[]> GetChatMessagesAsync()
         {
-            return RegisteredFunction.Invoke<ChatMessage[]>("getChatMessages");
+            return await JSRuntime.Current.InvokeAsync<ChatMessage[]>(
+                "ChatMessageRepository.getChatMessages");
+
         }
 
-        internal static void AddChatMessage(ChatMessage chatMessage)
+        internal static async Task AddChatMessageAsync(ChatMessage chatMessage)
         {
-            RegisteredFunction.Invoke<ChatMessage[]>("addChatMessage", chatMessage);
+            await JSRuntime.Current.InvokeAsync<object>(
+                "ChatMessageRepository.addChatMessage",
+                chatMessage);
         }
     }
 }

@@ -36,13 +36,13 @@
 
     protected override void OnInit()
     {
-        _timer.Elapsed += (sender, args) => Tick();
+        _timer.Elapsed += async (sender, args) => await TickAsync();
         _timer.Start();
     }
 
-    private void Tick()
+    private async Task TickAsync()
     {
-        _chatMessages = ChatMessageRepository.GetChatMessages()
+        _chatMessages = (await ChatMessageRepository.GetChatMessagesAsync())
             .OrderByDescending(m => m.Time)
             .ToArray();
         StateHasChanged();

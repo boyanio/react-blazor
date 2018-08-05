@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChatMessage as ChatMessageModel } from "../core/ChatMessage";
+import { ChatMessage as ChatMessageModel } from "../../common/ChatMessage";
 import { formatRelativeTime } from "../core/TimeUtils";
 
 export interface ChatMessageProps {

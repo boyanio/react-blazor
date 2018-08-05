@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChatMessageRepository } from "../core/ChatMessageRepository";
+import * as ChatMessageRepository from "ChatMessageRepository";
 
 interface NewChatMessageState {
   newMessage: string;

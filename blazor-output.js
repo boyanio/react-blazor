@@ -19,7 +19,6 @@ const run = async () => {
   await fsAsync.mkdir(buildDir);
 
   await ncpAsync(`${publishDir}/_framework`, `${buildDir}/_framework`);
-  await ncpAsync(`${publishDir}/js`, `${buildDir}/js`);
 };
 
 run();

@@ -39,13 +39,13 @@
     </div>
   </div>
 
+  <script src="apps/common.js"></script>
+
   <script crossorigin src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="apps/react/react-app.js"></script>
 
-  <script src="apps/blazor/_framework/blazor.js" main="BlazorChatApp.dll" entrypoint="BlazorChatApp.Program::Main" references="Microsoft.AspNetCore.Blazor.Browser.dll,Microsoft.AspNetCore.Blazor.dll,Microsoft.Extensions.DependencyInjection.Abstractions.dll,Microsoft.Extensions.DependencyInjection.dll,mscorlib.dll,netstandard.dll,System.Core.dll,System.dll,System.Net.Http.dll"
-    linker-enabled="true"></script>
-  <script src="apps/blazor/js/jsinterop.js"></script>
+  <script src="apps/blazor/_framework/blazor.webassembly.js"></script>
 </body>
 
 </html>
