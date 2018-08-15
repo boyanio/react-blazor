@@ -8,8 +8,8 @@ const fsAsync = ['exists', 'mkdir']
 const rimrafAsync = promisify(rimraf);
 const ncpAsync = promisify(ncp);
 
-const run = async () => {
-  const publishDir = `${__dirname}/src/blazor/BlazorChatApp/bin/Release/netstandard2.0/publish/BlazorChatApp/dist`;
+const run = async (buildConfiguration) => {
+  const publishDir = `${__dirname}/src/blazor/BlazorChatApp/bin/${buildConfiguration}/netstandard2.0/publish/BlazorChatApp/dist`;
   const buildDir = `${__dirname}/build/apps/blazor`;
 
   if (await fsAsync.exists(buildDir)) {
@@ -21,4 +21,6 @@ const run = async () => {
   await ncpAsync(`${publishDir}/_framework`, `${buildDir}/_framework`);
 };
 
-run();
+
+const buildConfiguration = process.argv.length > 2 ? process.argv[2] : 'Release';
+run(buildConfiguration);
