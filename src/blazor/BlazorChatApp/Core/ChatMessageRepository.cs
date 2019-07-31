@@ -1,20 +1,28 @@
 ﻿using Microsoft.JSInterop;
+using System;
 using System.Threading.Tasks;
 
 namespace BlazorChatApp.Core
 {
-    internal static class ChatMessageRepository
+    public class ChatMessageRepository
     {
-        internal static async Task<ChatMessage[]> GetChatMessagesAsync()
+        private readonly IJSRuntime _jsRuntime;
+
+        public ChatMessageRepository(IJSRuntime jsRuntime)
         {
-            return await JSRuntime.Current.InvokeAsync<ChatMessage[]>(
+            _jsRuntime = jsRuntime ?? throw new ArgumentNullException(nameof(jsRuntime));
+        }
+
+        public async Task<ChatMessage[]> GetChatMessagesAsync()
+        {
+            return await _jsRuntime.InvokeAsync<ChatMessage[]>(
                 "ChatMessageRepository.getChatMessages");
 
         }
 
-        internal static async Task AddChatMessageAsync(ChatMessage chatMessage)
+        public async Task AddChatMessageAsync(ChatMessage chatMessage)
         {
-            await JSRuntime.Current.InvokeAsync<object>(
+            await _jsRuntime.InvokeAsync<object>(
                 "ChatMessageRepository.addChatMessage",
                 chatMessage);
         }

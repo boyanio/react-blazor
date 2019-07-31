@@ -11,7 +11,7 @@
     "build:react": "webpack",
     "build:blazor": "dotnet publish src/blazor/BlazorChatApp.sln -c Release && node blazor-output.js Release",
     "build": "npm run build:react && npm run build:blazor",
-    "serve": "node serve.js"
+    "start": "node serve.js"
   },
   "private": true,
   "author": "Boyan Mihaylov",

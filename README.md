@@ -16,7 +16,7 @@ To build the project and run it locally, run
 
 ```
 npm run build
-npm run serve
+npm start
 ```
 
 The later will create a web site at `http://localhost:8080/react-blazor/`.
