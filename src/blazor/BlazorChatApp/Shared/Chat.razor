@@ -35,7 +35,7 @@
     private ChatMessage[] _chatMessages = new ChatMessage[0];
     private Timer _timer = new Timer(1000);
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         _timer.Elapsed += async (sender, args) => await TickAsync();
         _timer.Start();
