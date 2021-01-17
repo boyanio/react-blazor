@@ -17,7 +17,7 @@ const run = async (buildConfiguration) => {
 
   await fsAsync.mkdir(buildDir);
 
-  const publishDir = `${__dirname}/src/blazor/BlazorChatApp/bin/${buildConfiguration}/net5.0/publish/wwwroot`;
+  const publishDir = `${__dirname}/src/blazor/bin/${buildConfiguration}/net5.0/publish/wwwroot`;
   await ncpAsync(`${publishDir}/_framework`, `${buildDir}/_framework`);
 };
 
