@@ -4,7 +4,7 @@ This demo shows how React apps can live together with Blazor apps, which are bas
 
 ## Getting started
 
-To configure Blazor on your machine, you can follow the [instructions](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) online. For the rest, you only need:
+To build the blazor app you need either Docker installed or you can follow the [instructions](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) to install the appropriate .NET SDK locally. For the rest, you only need:
 
 ```
 npm install
