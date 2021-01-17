@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Blazor.Hosting;
+﻿using BlazorChatApp.Core;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorChatApp
 {
     public class Program
     {
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
-
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("#blazor-app");
+            builder.Services.AddSingleton<ChatMessageRepository>();
+
+            await builder.Build().RunAsync();
         }
     }
 }

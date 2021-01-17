@@ -23,7 +23,7 @@ export class NewChatMessage extends React.Component<{}, NewChatMessageState> {
       <form className="new-message-form">
         <div className="row">
           <div className="col-md-9">
-            <input type="text" id="newChatMessage" className="form-control" placeholder="Enter your message here..." value={this.state.newMessage} onChange={this.handleChange} />
+            <input type="text" className="form-control" placeholder="Enter your message here..." value={this.state.newMessage} onChange={this.handleChange} />
           </div>
           <div className="col-md-3">
             <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Send</button>
