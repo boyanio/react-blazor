@@ -34,7 +34,7 @@
     "source-map-loader": "^0.2.4",
     "typescript": "^3.3.1",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "react": "^16.7.0",
