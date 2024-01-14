@@ -15,7 +15,7 @@ const run = async (buildConfiguration) => {
     await rimrafAsync(buildDir);
   }
 
-  await fsAsync.mkdir(buildDir);
+  await fsAsync.mkdir(buildDir, { recursive: true });
 
   const publishDir = `${__dirname}/src/blazor/bin/${buildConfiguration}/net5.0/publish/wwwroot`;
   await ncpAsync(`${publishDir}/_framework`, `${buildDir}/_framework`);

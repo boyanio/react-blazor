@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "jsx": "react",
-    "module": "commonjs",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES2022"],
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "ChatMessageRepository": [
