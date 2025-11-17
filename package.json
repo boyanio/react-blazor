@@ -28,7 +28,7 @@
     "connect": "^3.7.0",
     "connect-modrewrite": "^0.10.2",
     "ncp": "^2.0.0",
-    "rimraf": "^5.0.5",
+    "rimraf": "^6.1.0",
     "serve-static": "^1.16.2",
     "ts-loader": "^9.5.1",
     "typescript": "^5.2.2",
